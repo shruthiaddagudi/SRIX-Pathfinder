@@ -7,33 +7,7 @@
  * Use in Phase 8: integrate into live tracking for ground truth updates.
  */
 
-// Type definitions for jsQR (since @types/jsqr doesn't exist)
-interface QRCode {
-  data: string;
-  width: number;
-  height: number;
-}
-
-declare function jsQR(
-  data: Uint8ClampedArray,
-  width: number,
-  height: number
-): QRCode | null;
-
-// Import jsQR
-let jsQR: typeof jsQR | null = null;
-try {
-  jsQR = require('jsqr');
-} catch (e) {
-  // Fallback: jsQR not available, will use mock implementation
-  console.warn('jsQR not available, using fallback QR detection');
-}
-try {
-  jsQR = require('jsqr');
-} catch (e) {
-  // Fallback: jsQR not available, will use mock implementation
-  console.warn('jsQR not available, using fallback QR detection');
-}
+import jsQR from 'jsqr';
 
 export interface QRPosition {
   x: number;
